@@ -46,7 +46,7 @@ if [ ! -d $APACHE_PATH ]; then
 fi
 
 #copy in the httpd.conf from the buildpack
-cp ./conf/httpd.conf /app/apache/conf/httpd.conf
+cp $BIN_DIR/../conf/httpd.conf /app/apache/conf/httpd.conf
 
 
 cat >>boot.sh <<EOF
