@@ -1,24 +1,15 @@
-Heroku buildpack: Static
-========================
+# Heroku Buildpack for Static Files
 
-This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpack) for static apps. 
-It uses Apache to statically serve your content. It also supports securely serving your static content.
-To securely serve your content you need to set two variables:
+This is a [Heroku Buildpack](http://devcenter.heroku.com/articles/buildpack) for static apps. 
+It uses Apache to statically serve your content.
+
+## Usage
+
+Make sure to have `index.html` in the root of your repository or else Heroku will not detect your static buildpack. After that you can run the following command.
+
+    heroku create --stack cedar --buildpack https://github.com/sjlu/heroku-buildpack-static.git
+
+You can also have the choice to password protect your application by simply adding Heroku configuration variables. To do so, run the following commands.
 
     heroku config:add USERNAME=usernamehere
     heroku config:add PASSWORD=passwordhere
-
-
-Usage
------
-
-Example usage:
-
-    $ cat 'hello world' > index.html
-
-    $ heroku create --stack cedar --buildpack git@github.com:craigkerstiens/heroku-buildpack-static.git
-
-    $ git push heroku master
-    ...
-
-The buildpack will detect your app as Static if it has the file `index.html` in the root. 
